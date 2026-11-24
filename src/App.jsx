@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { FaInstagram, FaPhone, FaWhatsapp } from 'react-icons/fa'
 import './App.css'
 
 const collections = [
@@ -37,6 +38,8 @@ const navigation = [
 
 const googleMapsUrl =
   'https://www.google.com/maps/place/Labamba+Trikaripur/@12.1414587,75.1743913,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46fb375250aa9:0xa72a265b4260080b!8m2!3d12.1414587!4d75.1769662!16s%2Fg%2F11v3x1jnqy'
+const directionsUrl =
+  'https://www.google.com/maps/dir/?api=1&destination=12.1414587%2C75.1769662'
 const phoneNumber = '+917902809705'
 const whatsappUrl = 'https://wa.me/917902809705'
 const instagramUrl = 'https://www.instagram.com/labamba_tkr/'
@@ -395,32 +398,31 @@ function App() {
               </p>
             </div>
             <div className="contact-details">
-              <div className="contact-row">
-                <span className="contact-label">Phone</span>
-                <a className="contact-value" href={`tel:${phoneNumber}`}>
-                  +91 7902809705
-                </a>
-              </div>
-              <div className="contact-row">
-                <span className="contact-label">WhatsApp</span>
+              <div className="contact-social-links" aria-label="Contact links">
                 <a
-                  className="contact-value"
+                  className="contact-social-link contact-social-link--phone"
+                  href={`tel:${phoneNumber}`}
+                  aria-label="Call Labamba at +91 7902809705"
+                >
+                  <FaPhone aria-hidden="true" />
+                </a>
+                <a
+                  className="contact-social-link contact-social-link--whatsapp"
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Message Labamba on WhatsApp"
                 >
-                  +91 7902809705
+                  <FaWhatsapp aria-hidden="true" />
                 </a>
-              </div>
-              <div className="contact-row">
-                <span className="contact-label">Instagram</span>
                 <a
-                  className="contact-value"
+                  className="contact-social-link contact-social-link--instagram"
                   href={instagramUrl}
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Visit Labamba on Instagram"
                 >
-                  @labamba_tkr
+                  <FaInstagram aria-hidden="true" />
                 </a>
               </div>
               <div className="contact-row">
@@ -429,10 +431,15 @@ function App() {
               </div>
               <a
                 className="contact-address"
-                href={googleMapsUrl}
+                href={directionsUrl}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Get directions to Raza Complex, Trikaripur, Kerala"
               >
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                  <path d="M19 10.2c0 5-7 11-7 11s-7-6-7-11a7 7 0 1 1 14 0Z" />
+                  <circle cx="12" cy="10" r="2.3" />
+                </svg>
                 Raza Complex, Trikaripur, Kerala <ArrowIcon diagonal />
               </a>
             </div>
